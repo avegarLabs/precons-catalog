@@ -1,0 +1,71 @@
+.dashboard-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(229, 231, 235, 0.8);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .icon-container {
+            border: 2px dashed #cbd5e1;
+            background: #f1f5f9;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        .dashboard-card:hover .icon-container {
+            transform: scale(1.1);
+            background: #e2e8f0;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-1 .icon-container { border-color: rgba(59, 130, 246, 0.3); }
+        .card-2 .icon-container { border-color: rgba(16, 185, 129, 0.3); }
+        .card-3 .icon-container { border-color: rgba(245, 158, 11, 0.3); }
+        .card-4 .icon-container { border-color: rgba(139, 92, 246, 0.3); }
+        .card-5 .icon-container { border-color: rgba(6, 182, 212, 0.3); }
+        .card-6 .icon-container { border-color: rgba(236, 72, 153, 0.3); }
+        
+        .card-1 .action-section { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .card-2 .action-section { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .card-3 .action-section { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+        .card-4 .action-section { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+        .card-5 .action-section { background: rgba(6, 182, 212, 0.1); color: #06b6d4; }
+        .card-6 .action-section { background: rgba(236, 72, 153, 0.1); color: #ec4899; }
+        
+        .header-gradient {
+            background: linear-gradient(135deg, #2563eb, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: currentColor;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .dashboard-card:hover .card-title::after {
+            width: 100%;
+        }

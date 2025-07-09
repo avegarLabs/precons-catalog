@@ -1,0 +1,103 @@
+<div class="p-6">
+      <mat-form-field class="w-full">
+        <mat-label>Seleccione Sección</mat-label>
+        <input 
+          type="text"
+          matInput
+          [formControl]="searchControl"
+          [matAutocomplete]="auto"
+          placeholder="Ingrese código o descripción"
+        >
+      </mat-form-field>
+
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+        @if (loading()) {
+          <mat-option disabled class="flex justify-center py-4">
+            <mat-spinner diameter="24"></mat-spinner>
+          </mat-option>
+        }
+        @if (error()) {
+          <mat-option disabled class="text-red-500">
+            {{ error() }}
+          </mat-option>
+        }
+        @for (item of filteredOptions | async; track item.Codigo) {
+          <mat-option [value]="item">
+            <div class="flex items-center py-2">
+              <div class="bg-blue-100 rounded-lg p-2 mr-3">
+                <span class="font-mono text-blue-700">{{ item.Codigo }}</span>
+              </div>
+              <span class="truncate">{{ item.Descripcion }}</span>
+            </div>
+          </mat-option>
+        }
+      </mat-autocomplete>
+    
+      <mat-form-field class="w-full">
+        <mat-label>Seleccione Capítulo</mat-label>
+        <input 
+          type="text"
+          matInput
+          [formControl]="searchGrupControl"
+          [matAutocomplete]="auto1"
+          placeholder="Ingrese código o descripción"
+        >
+      </mat-form-field>
+
+      <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="onOptionSelectedGrup($event)">
+        @if (loading()) {
+          <mat-option disabled class="flex justify-center py-4">
+            <mat-spinner diameter="24"></mat-spinner>
+          </mat-option>
+        }
+        @if (error()) { 
+          <mat-option disabled class="text-red-500">
+            {{ error() }}
+          </mat-option>
+        }
+        @for (item of filteredGrupOptions | async; track item.Codigo) {
+          <mat-option [value]="item">
+            <div class="flex items-center py-2">
+              <div class="bg-blue-100 rounded-lg p-2 mr-3">
+                <span class="font-mono text-blue-700">{{ item.Codigo }}</span>
+              </div>
+              <span class="truncate">{{ item.Descripcion }}</span>
+            </div>
+          </mat-option>
+        }
+      </mat-autocomplete>
+
+      <mat-form-field class="w-full">
+        <mat-label>Seleccione SubCapítulo</mat-label>
+        <input 
+          type="text"
+          matInput
+          [formControl]="searchSubControl"
+          [matAutocomplete]="auto2"
+          placeholder="Ingrese código o descripción"
+        >
+      </mat-form-field>
+
+      <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="onOptionSelectedSub($event)">
+        @if (loading()) {
+          <mat-option disabled class="flex justify-center py-4">
+            <mat-spinner diameter="24"></mat-spinner>
+          </mat-option>
+        }
+        @if (error()) { 
+          <mat-option disabled class="text-red-500">
+            {{ error() }}
+          </mat-option>
+        }
+        @for (item of filteredSubOptions| async; track item.Codigo) {
+          <mat-option [value]="item">
+            <div class="flex items-center py-2">
+              <div class="bg-blue-100 rounded-lg p-2 mr-3">
+                <span class="font-mono text-blue-700">{{ item.Codigo }}</span>
+              </div>
+              <span class="truncate">{{ item.Descripcion }}</span>
+            </div>
+          </mat-option>
+        }
+      </mat-autocomplete>
+  </div>

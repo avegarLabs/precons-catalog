@@ -1,0 +1,55 @@
+<div class="max-w-8xl mx-auto p-4">
+
+  <!-- Encabezado -->
+  <div class="bg-white rounded-xl shadow-md p-4 mb-4">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+      <div>
+        <div class="flex items-center">
+          <div class="bg-gray-200 border-2 border-dashed rounded-xl w-8 h-8 flex items-center justify-center">
+            <fa-icon [icon]="['fas', getIconName('faTruck')]" style="font-size: 15px;"></fa-icon>
+
+
+          </div>
+          <h1 class="text-2xl font-bold text-gray-800 ml-5 mt-2">Listado de Equipos</h1>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="border border-gray-100 rounded-lg overflow-hidden">
+
+    <div class="mb-4">
+      <input type="text" [(ngModel)]="filtro" (ngModelChange)="pageIndex = 0"
+        placeholder="Buscar por código o descripción..."
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+
+    <mat-accordion>
+      @for (item of paginatedRecursos; track $index) {
+      <mat-expansion-panel>
+        <mat-expansion-panel-header (click)="getDesglose(item.codigo)">
+           <mat-panel-title style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div>
+              {{ item.codigo }} {{item.Descripcion}}
+            </div>
+            <span class="text-left">{{item.Precio}}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        @if (service.apertura()) {
+        <app-apertura [apertura]="service.apertura()"/>
+        }
+
+      </mat-expansion-panel>
+      }
+    </mat-accordion>
+
+    @if (service.recuros().length > 0) {
+   <mat-paginator [length]="recursosFiltrados.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      [pageIndex]="pageIndex" (page)="handlePageEvent($event)" class="mt-4" aria-label="Seleccione página">
+    </mat-paginator>
+    }
+  </div>
+
+
+</div>

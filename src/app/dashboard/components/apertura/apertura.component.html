@@ -1,0 +1,96 @@
+<div class="overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Concepto</th>
+            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Tarifa de Uso</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.tarifaUso }}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Tarifa de Parada</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.tarifaParada }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Impuesto</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.Impuesto }}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Depreciación</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.depreciacion }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Seguro</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.Seguro }}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Combustible</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.Combustible }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Aceite de Motor</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.aceiteMotor }}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Aceite Hidráulico</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.aceiteHidraulico }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Aceite de Transmisión</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.aceiteTransmicion }}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Grasa</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.Grasa }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Electricidad</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.Electricidad }}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Mantenimiento y Reparación</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.mttoReparacion }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Piezas de Repuesto</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.piezasRepuesto }}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Mano de Obra</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.mManoObra }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Neumáticos</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.neumaticos }}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Piezas Especiales</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.piezaEspeciales }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Salario</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.Salario }}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Total</td>
+            <td class="px-4 py-4 text-sm text-gray-500 font-bold">{{ apertura()?.total }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">15%</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.porCiento }}</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Otros Gastos</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.otrosGastos }}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm font-medium text-gray-900">Utilidad</td>
+            <td class="px-4 py-4 text-sm text-gray-500">{{ apertura()?.Utilidad }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

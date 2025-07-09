@@ -1,0 +1,56 @@
+<div class="max-w-8xl mx-auto p-4">
+
+  <!-- Encabezado -->
+  <div class="bg-white rounded-xl shadow-md p-4 mb-4">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+      <div>
+        <div class="flex items-center">
+          <div class="bg-gray-200 border-2 border-dashed rounded-xl w-8 h-8 flex items-center justify-center">
+            <fa-icon [icon]="['fas', getIconName('faCube')]" style="font-size: 15px;"></fa-icon>
+
+
+          </div>
+          <h1 class="text-2xl font-bold text-gray-800 ml-5 mt-2">Listado de Recursos</h1>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="border border-gray-100 rounded-lg overflow-hidden">
+    <div class="mb-4">
+      <input type="text" [(ngModel)]="filtro" (ngModelChange)="pageIndex = 0"
+        placeholder="Buscar por código o descripción..."
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+    <table class="w-full">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-5 py-3.5 text-left text-sm font-bold text-gray-700">Código</th>
+          <th class="px-5 py-3.5 text-left text-sm font-bold text-gray-700">Descripción</th>
+          <th class="px-5 py-3.5 text-left text-sm font-bold text-gray-700">UM</th>
+          <th class="px-5 py-3.5 text-left text-sm font-bold text-gray-700">Precio</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100">
+        <!-- Fila de ejemplo -->
+        @for (item of paginatedRecursos; track $index) {
+        <tr class="hover:bg-gray-50 transition-colors">
+          <td class="px-5 py-4 text-sm text-gray-700 font-medium">{{item.codigo}}</td>
+          <td class="px-5 py-4 text-sm text-gray-600">{{item.Descripcion}}</td>
+          <td class="px-5 py-4 text-sm text-gray-600">{{item.um}}</td>
+          <td class="px-5 py-4 text-sm text-gray-600">{{item.Precio}}</td>
+        </tr>
+        }
+
+      </tbody>
+    </table>
+    @if (service.recuros().length > 0) {
+    <mat-paginator [length]="recursosFiltrados.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      [pageIndex]="pageIndex" (page)="handlePageEvent($event)" class="mt-4" aria-label="Seleccione página">
+    </mat-paginator>
+    }
+  </div>
+
+
+</div>

@@ -1,0 +1,127 @@
+ <header class="py-12 text-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50 to-cyan-50 opacity-80"></div>
+            <div class="absolute top-0 left-0 w-full h-full bg-grid-slate-100/[0.04] bg-[length:40px_40px]"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold header-gradient mb-4">
+                PRECONS III
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto">
+                Catálogo de Normas
+            </p>
+            
+          
+        </div>
+    </header>
+
+    <!-- Cards Grid -->
+    <main class="container mx-auto px-4 py-8 max-w-6xl relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1: Materiales -->
+            <a [routerLink]="['/dashboard', 'resources']"  class="dashboard-card card-1">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="icon-container w-16 h-16 flex items-center justify-center">
+                            <fa-icon [icon]="['fas', getIconName('faCube')]" style="font-size: 35px;"></fa-icon>
+                        </div>
+                        <div class="ml-6">
+                            <h2 class="text-2xl font-bold text-gray-800 card-title">Materiales</h2>
+                            
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-4">Lista completa de recursos materiales para construcción.</p>
+                </div>
+                
+            </a>
+
+
+             <a [routerLink]="['/dashboard', 'workers']"  class="dashboard-card card-1">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="icon-container w-16 h-16 flex items-center justify-center">
+                             <fa-icon [icon]="['fas', getIconName('helmet-safety')]" style="font-size: 35px;"></fa-icon>
+                        </div>
+                        <div class="ml-6">
+                            <h2 class="text-2xl font-bold text-gray-800 card-title">Mano de Obra</h2>
+                            
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-4">Mano de Obra especializada para proyectos de construcción</p>
+                </div>
+                
+            </a>
+           
+            <!-- Card 3: Equipos -->
+            <a [routerLink]="['/dashboard', 'equipment']" class="dashboard-card card-3">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="icon-container w-16 h-16 flex items-center justify-center">
+                            <fa-icon [icon]="['fas', getIconName('faTruck')]" style="font-size: 35px;"></fa-icon>
+                        </div>
+                        <div class="ml-6">
+                            <h2 class="text-2xl font-bold text-gray-800 card-title">Equipos</h2>
+                            
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-4">Maquinaria y herramientas de construcción, con especificaciones técnicas y costos operativos detallados.</p>
+                </div>
+                
+            </a>
+
+            <!-- Card 4: Transporte -->
+            <a [routerLink]="['/dashboard', 'juego']" class="dashboard-card card-4">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="icon-container w-16 h-16 flex items-center justify-center">
+                            <fa-icon [icon]="['fas', getIconName('faCubes')]" style="font-size: 35px;"></fa-icon>
+                        </div>
+                        <div class="ml-6">
+                            <h2 class="text-2xl font-bold text-gray-800 card-title">Juego de Productos</h2>
+                           
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-4">Listado de suministros y normas de los elementos que lo componen</p>
+                </div>
+                
+            </a>
+
+            <!-- Card 5: Servicios -->
+            <a [routerLink]="['/dashboard', 'semi']" class="dashboard-card card-5">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="icon-container w-16 h-16 flex items-center justify-center">
+                          <fa-icon [icon]="['fas', getIconName('layer-group')]" style="font-size: 35px;"></fa-icon>
+                        </div>
+                        <div class="ml-6">
+                            <h2 class="text-2xl font-bold text-gray-800 card-title">Suministros Semielaborados</h2>
+                            
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-4">Listado completo de Morteros, Hormigones</p>
+                </div>
+               
+            </a>
+
+            <!-- Card 6: Varios -->
+            <a [routerLink]="['/dashboard', 'renglones']" class="dashboard-card card-6">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="icon-container w-16 h-16 flex items-center justify-center">
+                           <fa-icon [icon]="['fas', getIconName('faTags')]" style="font-size: 35px;"></fa-icon>
+                        </div>
+                        <div class="ml-6">
+                            <h2 class="text-2xl font-bold text-gray-800 card-title">Renglones Constructivos</h2>
+                            
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-4">Listado, costos y estructura de las actividades.</p>
+                </div>
+                
+            </a>
+        </div>
+    </main>
+
+  
+   
