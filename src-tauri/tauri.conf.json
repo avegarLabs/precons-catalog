@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "identifier": "com.avegarlabs.preconsiii",
   "build": {
-    "frontendDist": "../dist/sca2-patient-data",
+    "frontendDist": "../dist/sca2-patient-data/browser",
     "devUrl": "http://localhost:4200",
     "beforeDevCommand": "npm run start",   
   "beforeBuildCommand": "npm run build"
