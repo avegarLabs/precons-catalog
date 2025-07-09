@@ -13,8 +13,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-persons',
-  imports: [MatPaginatorModule, FontAwesomeModule, CommonModule,
-    FormsModule],
+  imports: [MatPaginatorModule, FontAwesomeModule, CommonModule,FormsModule],
   templateUrl: './persons.component.html',
 })
 export default class PersonsComponent {
