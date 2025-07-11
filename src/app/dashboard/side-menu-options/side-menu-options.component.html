@@ -26,8 +26,17 @@
     </div>
   </a>
   }
-
-
   }
+
+  <a (click)="openModal()"
+    class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3  hover:bg-white/5 transition ease-linear duration-150 mt-15">
+    <div>
+      <fa-icon [icon]="['fas', getIconName(icon)]" style="font-size: 24px;"></fa-icon>
+    </div>
+    <div class="flex flex-col">
+      <span class="text-lg font-bold leading-5 text-white">Contacto</span>
+     
+    </div>
+  </a>
 
 </div>
