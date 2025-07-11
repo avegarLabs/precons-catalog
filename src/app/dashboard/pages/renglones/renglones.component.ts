@@ -17,8 +17,8 @@ import { Renglones } from '../../../core/interfaces/renglon';
     MatPaginatorModule,
     FontAwesomeModule,
     MatExpansionModule,
-    SemiRengNormaComponent,
     SuperGroupUtocompleteComponent,
+    SemiRengNormaComponent
   ],
   templateUrl: './renglones.component.html',
 })
@@ -36,6 +36,7 @@ export default class RenglonesComponent {
 
   private iconLibrary = inject(FaIconLibrary);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
 
   constructor() {
     this.iconLibrary.addIcons(faTags);

@@ -10,7 +10,7 @@
         >
       </mat-form-field>
 
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)"  [displayWith]="displayFn">
         @if (loading()) {
           <mat-option disabled class="flex justify-center py-4">
             <mat-spinner diameter="24"></mat-spinner>
@@ -44,7 +44,7 @@
         >
       </mat-form-field>
 
-      <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="onOptionSelectedGrup($event)">
+      <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="onOptionSelectedGrup($event)"  [displayWith]="displayFn1">
         @if (loading()) {
           <mat-option disabled class="flex justify-center py-4">
             <mat-spinner diameter="24"></mat-spinner>
@@ -78,7 +78,7 @@
         >
       </mat-form-field>
 
-      <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="onOptionSelectedSub($event)">
+      <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="onOptionSelectedSub($event)" [displayWith]="displayFn2">
         @if (loading()) {
           <mat-option disabled class="flex justify-center py-4">
             <mat-spinner diameter="24"></mat-spinner>

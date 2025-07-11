@@ -64,13 +64,25 @@ export class SuperGroupUtocompleteComponent implements OnInit {
     this.grupoService.filterSuperGroup();
 
     // Secciones
-    this.filteredOptions = this.searchControl.valueChanges.pipe(
+    /* this.filteredOptions = this.searchControl.valueChanges.pipe(
       startWith(''),
       map((value) => {
         const input = typeof value === 'string' ? value : value?.Descripcion;
         return input
           ? this._filter(input)
           : this.grupoService.superNorm()?.slice() || [];
+      })
+    );*/
+
+    this.filteredOptions = this.searchControl.valueChanges.pipe(
+      startWith(''),
+      map((value) => {
+        if (typeof value !== 'string') {
+          return this.grupoService.superNorm()?.slice() || [];
+        }
+
+        const input = value.toLowerCase();
+        return this._filter(input);
       })
     );
 
@@ -80,10 +92,11 @@ export class SuperGroupUtocompleteComponent implements OnInit {
       this.grupoNorm$,
     ]).pipe(
       map(([value, grupoNorm]) => {
-        const input = typeof value === 'string' ? value : value?.Descripcion;
-        return input
-          ? this._filter1(input, grupoNorm)
-          : grupoNorm?.slice() || [];
+        // ✅ Si ya hay un objeto seleccionado, mostrar toda la lista
+        if (typeof value !== 'string') {
+          return grupoNorm?.slice() || [];
+        }
+        return this._filter1(value.toLowerCase(), grupoNorm);
       })
     );
 
@@ -93,8 +106,11 @@ export class SuperGroupUtocompleteComponent implements OnInit {
       this.subNorm$,
     ]).pipe(
       map(([value, subNorm]) => {
-        const input = typeof value === 'string' ? value : value?.Descripcion;
-        return input ? this._filter2(input, subNorm) : subNorm?.slice() || [];
+        // ✅ Si ya hay un objeto seleccionado, mostrar toda la lista
+        if (typeof value !== 'string') {
+          return subNorm?.slice() || [];
+        }
+        return this._filter2(value.toLowerCase(), subNorm);
       })
     );
   }
@@ -120,7 +136,7 @@ export class SuperGroupUtocompleteComponent implements OnInit {
     this.searchSubControl.setValue('', { emitEvent: true });
     this.selectedGrupo2.set(null);
 
-    this.searchControl.setValue(this.displayFn(grupo));
+    this.searchControl.setValue(grupo);
     this.grupoService.filterGroup(grupo.Codigo);
     this.seccionSelected.emit(grupo.Codigo);
   }
@@ -147,7 +163,7 @@ export class SuperGroupUtocompleteComponent implements OnInit {
     this.searchSubControl.setValue('', { emitEvent: true });
     this.selectedGrupo2.set(null);
 
-    this.searchGrupControl.setValue(this.displayFn1(grupo1));
+    this.searchGrupControl.setValue(grupo1);
     this.grupoService.filterSubGroup(grupo1.Codigo);
     this.capituloSelected.emit(grupo1.Codigo);
   }
@@ -170,7 +186,7 @@ export class SuperGroupUtocompleteComponent implements OnInit {
   onOptionSelectedSub(event: MatAutocompleteSelectedEvent): void {
     const grupo2 = event.option.value as Grupos;
     this.selectedGrupo2.set(grupo2);
-    this.searchSubControl.setValue(this.displayFn2(grupo2));
+    this.searchSubControl.setValue(grupo2);
     this.subcapituloSelected.emit(grupo2.Codigo);
   }
 
