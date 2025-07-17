@@ -12,7 +12,8 @@ import {
   faTruck,
   faLayerGroup,
   faHome,
-  faAddressCard
+  faAddressCard,
+  faRobot
 } from '@fortawesome/free-solid-svg-icons';
 import { ContactInfoComponent } from '../components/contact-info/contact-info.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -43,7 +44,8 @@ export class SideMenuOptionsComponent {
       faTruck,
       faLayerGroup,
       faHome,
-      faAddressCard
+      faAddressCard,
+      faRobot
     );
   }
 
@@ -91,6 +93,13 @@ export class SideMenuOptionsComponent {
       label: 'Renglones',
       subLabel: 'Renglones Constructivos',
       route: '/dashboard/renglones',
+    },
+
+    {
+      icon: 'faRobot',
+      label: 'Asistente',
+      subLabel: 'Asistente de Consultas',
+      route: '/dashboard/search',
     },
   ];
 

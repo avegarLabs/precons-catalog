@@ -41,6 +41,11 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./dashboard/pages/renglones/renglones.component'),
       },
+       {
+        path: 'search',
+        loadComponent: () =>
+          import('./dashboard/pages/search/search.component'),
+      },
 
       {
         path: '**',
