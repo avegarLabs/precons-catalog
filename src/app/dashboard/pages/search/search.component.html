@@ -29,7 +29,10 @@
 
   <div *ngIf="botService.response()" class="bg-gray-50 p-4 rounded-xl shadow-inner">
     <h3 class="text-lg font-semibold mb-2">Respuesta:</h3>
-    <p class="whitespace-pre-line text-gray-800">{{ botService.response()?.answer }}</p>
+     <div class="answer-content">
+      <div class="answer-text" [innerHTML]="formatAnswer()"></div>
+    </div>
+    <!--p class="whitespace-pre-line text-gray-800">{{ botService.response()?.answer }}</p-->
 
     <div *ngIf="botService.response()?.sources?.length" class="mt-4 text-sm text-gray-600">
       <h4 class="font-medium">📄 Fuentes:</h4>

@@ -1,5 +1,5 @@
-import { CommonModule, NgClass } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   FontAwesomeModule,
@@ -7,6 +7,7 @@ import {
 } from '@fortawesome/angular-fontawesome';
 import { faRobot } from '@fortawesome/free-solid-svg-icons';
 import { BotService } from '../../../core/services/bot.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search',
@@ -19,8 +20,8 @@ export default class SearchComponent {
   private iconLibrary = inject(FaIconLibrary);
   question: string = '';
 
-  constructor() {
-    this.iconLibrary.addIcons(faRobot);
+  constructor(private sanitizer: DomSanitizer) {
+     this.iconLibrary.addIcons(faRobot);
   }
 
  
@@ -34,4 +35,23 @@ export default class SearchComponent {
     this.botService.askQuestion(trimmed);
     this.question = '';
   }
+
+
+  formatAnswer(): SafeHtml {
+    // Verifica si existe la respuesta
+    if (!this.botService.response()?.answer) {
+      return this.sanitizer.bypassSecurityTrustHtml(
+        '<p>No se recibió respuesta del chatbot</p>'
+      );
+    }
+
+    // Procesa el texto
+    let formatted = this.botService.response()?.answer
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n\n/g, '</p><p>')
+      .replace(/\n/g, '<br>');
+
+    return this.sanitizer.bypassSecurityTrustHtml(`<p>${formatted}</p>`);
+  }
+
 }

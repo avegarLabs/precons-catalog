@@ -1,0 +1,11 @@
+.answer-content {
+  border-left: 3px solid #2196f3;
+  padding-left: 16px;
+  margin-bottom: 24px;
+}
+.answer-text {
+  line-height: 1.6;
+}
+.answer-text strong {
+  color: #1565c0;
+}
