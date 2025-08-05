@@ -36,9 +36,9 @@
 
     <div *ngIf="botService.response()?.sources?.length" class="mt-4 text-sm text-gray-600">
       <h4 class="font-medium">📄 Fuentes:</h4>
-      <ul class="list-disc list-inside">
+      <ul class="list-disc list-inside" *ngFor="let source of botService.response()?.sources">
         <li >
-         GOC-2025-O45.pdf
+         {{ source.title }}
         </li>
       </ul>
     </div>

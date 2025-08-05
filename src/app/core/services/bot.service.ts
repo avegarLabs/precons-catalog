@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BotService {
- private apiUrl = 'https://api.docsbot.ai/teams/1sMCp7SzymlKefeD9bCW/bots/3J8wJwG03vT8UVbWeMCG/chat';
+ private apiUrl = 'https://api.docsbot.ai/teams/MUhRN7RKW66H30JQ0WJL/bots/ZnlsEPvMZBrk9BLiMsry/chat';
 
   readonly loading = signal(false);
   readonly response = signal<DocsBotResponse | null>(null);
